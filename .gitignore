@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TinyStudioRPG/.vs/TinyStudioRPG/CopilotIndices/17.13.444.19527
+/TinyStudioRPG/.vs/TinyStudioRPG/DesignTimeBuild
+/TinyStudioRPG/.vs/TinyStudioRPG/FileContentIndex
+/TinyStudioRPG/.vs
+/TinyStudioRPG/WPFUI/obj/Debug/net8.0-windows/refint
+/TinyStudioRPG/WPFUI/obj/Debug/net8.0-windows/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+/TinyStudioRPG/WPFUI/obj/Debug/net8.0-windows/ref
+/TinyStudioRPG/WPFUI/obj
+/TinyStudioRPG/WPFUI/bin/Debug/net8.0-windows
+/TinyStudioRPG/WPFUI/WPFUI.csproj.user
+/TinyStudioRPG/WPFUI/AssemblyInfo.cs
+/TinyStudioRPG/WPFUI/App.xaml.cs
+/TinyStudioRPG/WPFUI/App.xaml
