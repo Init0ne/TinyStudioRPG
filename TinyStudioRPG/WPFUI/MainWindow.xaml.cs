@@ -8,7 +8,7 @@ namespace WPFUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private GameSession GameSession;
+        private readonly GameSession GameSession;
 
         public MainWindow()
         {
@@ -17,6 +17,11 @@ namespace WPFUI
             GameSession = new GameSession();
 
             DataContext = GameSession;
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            GameSession.CurrentPlayer.ExperiencePoints += 10;
         }
     }
 }
