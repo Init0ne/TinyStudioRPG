@@ -4,14 +4,18 @@ namespace Engine.ViewModels
 {
     public class GameSession
     {
-        Player CurrentPlater { get; set; }
+        public Player CurrentPlayer { get; set; }
 
         public GameSession()
         {
-            CurrentPlater = new Player
+            CurrentPlayer = new Player
             {
                 Name = "Martín Fierro",
-                Gold = 100,
+                CharacterClass = "Gaucho",
+                HitPoints = 10,
+                ExperiencePoints = 0,
+                Level = 1,
+                Gold = 100
             };
         }
     }
