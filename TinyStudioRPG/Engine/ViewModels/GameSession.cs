@@ -1,9 +1,11 @@
-﻿using Engine.Models;
+﻿using Engine.Factories;
+using Engine.Models;
 
 namespace Engine.ViewModels
 {
     public class GameSession
     {
+        public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
         public Location CurrentLocation { get; set; }
 
@@ -19,14 +21,12 @@ namespace Engine.ViewModels
                 Gold = 100
             };
 
-            CurrentLocation = new Location
-            {
-                Name = "Casa",
-                XCoordinate = 0,
-                YCoordinate = -1,
-                Description = "Hogar tradicional porteño.",
-                ImageName = "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Locations\\casa.png"
-            };
+            WorldFactory factory = new();
+            CurrentWorld = factory.CreateWorld();
+
+            //CurrentLocation = CurrentWorld.LocationAt(-2, -1);
+            //CurrentLocation = CurrentWorld.LocationAt(-1, -1);
+            CurrentLocation = CurrentWorld.LocationAt(0, -1);
         }
     }
 }
