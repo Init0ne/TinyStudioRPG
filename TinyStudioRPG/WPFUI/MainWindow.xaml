@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         FontSize="11pt"
         Title="Tiny Quest" Height="768" Width="1024">
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -49,7 +54,6 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}"/>
             <Label Grid.Row="5" Grid.Column="0" Content="Nivel:"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Level}"/>
-            <Button Grid.Row="6" Grid.Column="1" Content="Toma mate" Click="ButtonBase_OnClick"/>
 
         </Grid>
         
@@ -97,8 +101,58 @@
 
         </Grid>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Inventario/Misiones" Background="BurlyWood"/>
-        <Label Grid.Row="2" Grid.Column="1" Content="Combate/Controles" Background="Lavender"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Inventario/Misiones" Background="BurlyWood"/>
+
+        <Grid Grid.Row="2" Grid.Column="1"
+              Background="Lavender">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="255"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10"
+                        Click="OnClick_MoveNorth"
+                        Visibility="{Binding HasLocationToNorth, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="Norte"/>
+                <Button Grid.Row="1" Grid.Column="0" 
+                        Height="25" Width="65" Margin="10"
+                        Click="OnClick_MoveWest"
+                        Visibility="{Binding HasLocationToWest, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="Oeste"/>
+                <Button Grid.Row="1" Grid.Column="2" 
+                        Height="25" Width="65" Margin="10"
+                        Click="OnClick_MoveEast"
+                        Visibility="{Binding HasLocationToEast, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="Este"/>
+                <Button Grid.Row="2" Grid.Column="1" 
+                        Height="25" Width="65" Margin="10"
+                        Click="OnClick_MoveSouth"
+                        Visibility="{Binding HasLocationToSouth, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Content="Sur"/>
+
+            </Grid>
+
+        </Grid>
 
     </Grid>
 </Window>

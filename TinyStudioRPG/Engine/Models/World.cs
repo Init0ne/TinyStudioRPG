@@ -2,7 +2,7 @@
 {
     public class World
     {
-        private List<Location> _locations = [];
+        private readonly List<Location> _locations = [];
 
         internal void AddLocation(int xCoordinate, int yCoordinate, string name, string description, string imageName)
         {
