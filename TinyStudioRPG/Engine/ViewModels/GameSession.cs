@@ -56,8 +56,7 @@ namespace Engine.ViewModels
                 Gold = 100
             };
 
-            WorldFactory factory = new();
-            CurrentWorld = factory.CreateWorld();
+            CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
         }
@@ -65,7 +64,7 @@ namespace Engine.ViewModels
         public void MoveNorth()
         {
             Location newLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate + 1);
-            if (newLocation != null)
+            if (HasLocationToNorth)
             {
                 CurrentLocation = newLocation;
             }
@@ -74,7 +73,7 @@ namespace Engine.ViewModels
         public void MoveWest()
         {
             Location newLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate - 1, CurrentLocation.YCoordinate);
-            if (newLocation != null)
+            if (HasLocationToWest)
             {
                 CurrentLocation = newLocation;
             }
@@ -83,7 +82,7 @@ namespace Engine.ViewModels
         public void MoveEast()
         {
             Location newLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate + 1, CurrentLocation.YCoordinate);
-            if (newLocation != null)
+            if (HasLocationToEast)
             {
                 CurrentLocation = newLocation;
             }
@@ -92,7 +91,7 @@ namespace Engine.ViewModels
         public void MoveSouth()
         {
             Location newLocation = CurrentWorld.LocationAt(CurrentLocation.XCoordinate, CurrentLocation.YCoordinate - 1);
-            if (newLocation != null)
+            if (HasLocationToSouth)
             {
                 CurrentLocation = newLocation;
             }
