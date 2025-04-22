@@ -12,5 +12,10 @@
             Name = name;
             Price = price;
         }
+
+        public GameItem Clone()
+        {
+            return new GameItem(ItempTypeID, Name, Price);
+        }
     }
 }
