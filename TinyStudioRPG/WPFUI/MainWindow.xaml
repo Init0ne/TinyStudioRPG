@@ -101,7 +101,36 @@
 
         </Grid>
 
-        <Label Grid.Row="2" Grid.Column="0" Content="Inventario/Misiones" Background="BurlyWood"/>
+        <Grid Grid.Row="2" Grid.Column="0" Background="BurlyWood">
+            
+            <TabControl>
+                <TabItem Header="Inventario">
+
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" 
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+
+                        <DataGrid.Columns>
+                            
+                            <DataGridTextColumn Header="Descripción"
+                                                Binding="{Binding Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Precio"
+                                                Binding="{Binding Price}"
+                                                Width="Auto"/>
+                            
+                        </DataGrid.Columns>
+                        
+                    </DataGrid>
+                    
+                </TabItem>
+                
+                <TabItem Header="Misiones">
+
+                </TabItem>
+            </TabControl>
+            
+        </Grid>
 
         <Grid Grid.Row="2" Grid.Column="1"
               Background="Lavender">
