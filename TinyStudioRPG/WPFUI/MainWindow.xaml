@@ -118,7 +118,6 @@
                             <DataGridTextColumn Header="Precio"
                                                 Binding="{Binding Price}"
                                                 Width="Auto"/>
-                            
                         </DataGrid.Columns>
                         
                     </DataGrid>
@@ -139,7 +138,6 @@
                             <DataGridTextColumn Header="Terminada"
                                                 Binding="{Binding IsCompleted}"
                                                 Width="Auto"/>
-
                         </DataGrid.Columns>
 
                     </DataGrid>
