@@ -23,6 +23,7 @@ namespace Engine.Factories
             newWorld.AddLocation(2, 0, "Monte Chaqueño", "Ambiente selvático. Enemigo: Araña Pollito.", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Locations\\casa.png");
 
             newWorld.AddLocation(0, 1, "Puesto de Mate", "NPC: Mateador que da misiones para recolectar yerba y curembas.", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Locations\\casa.png");
+            newWorld.LocationAt(0, 1).QuestsAvaibleHere.Add(QuestFactory.GetQuestByID(1));
 
             newWorld.AddLocation(0, 2, "Yerbal Misionero", "Plantaciones de yerba mate.", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Locations\\casa.png");
 
