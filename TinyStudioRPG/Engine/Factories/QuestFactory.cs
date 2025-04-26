@@ -4,7 +4,7 @@ namespace Engine.Factories
 {
     internal static class QuestFactory
     {
-        private static readonly List<Quest> _quests;
+        private static readonly List<Quest> _quests = [];
 
         static QuestFactory()
         {

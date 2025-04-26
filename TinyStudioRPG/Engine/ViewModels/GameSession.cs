@@ -9,10 +9,10 @@ namespace Engine.ViewModels
         private Location _currentLocation;
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
-        public Location CurrentLocation 
-        { 
+        public Location CurrentLocation
+        {
             get { return _currentLocation; }
-            set 
+            set
             {
                 _currentLocation = value;
 
@@ -109,4 +109,5 @@ namespace Engine.ViewModels
                 }
             }
         }
+    }
 }

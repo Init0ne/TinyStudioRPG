@@ -124,10 +124,28 @@
                     </DataGrid>
                     
                 </TabItem>
-                
+
                 <TabItem Header="Misiones">
 
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Quests}" 
+                              AutoGenerateColumns="False"
+                              HeadersVisibility="Column">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="Nombre"
+                                                Binding="{Binding PlayerQuest.Name}"
+                                                Width="*"/>
+                            <DataGridTextColumn Header="Terminada"
+                                                Binding="{Binding IsCompleted}"
+                                                Width="Auto"/>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+
                 </TabItem>
+                
             </TabControl>
             
         </Grid>
