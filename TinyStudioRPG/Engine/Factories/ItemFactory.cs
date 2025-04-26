@@ -12,6 +12,8 @@ namespace Engine.Factories
 
             _standardGameItems.Add(new Weapon(1001, "Facon", 1, 1, 2));
             _standardGameItems.Add(new Weapon(1002, "Hacha", 2, 2, 2));
+            _standardGameItems.Add(new GameItem(9001, "Diente de víbora", 2));
+            _standardGameItems.Add(new GameItem(9002, "Piel de víbora", 2));
         }
 
         public static GameItem CreateGameItem(int itemTypeId)
