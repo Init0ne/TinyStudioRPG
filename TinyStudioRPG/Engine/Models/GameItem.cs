@@ -1,17 +1,10 @@
 ﻿namespace Engine.Models
 {
-    public class GameItem
+    public class GameItem(int itemTypeID, string name, int price)
     {
-        public int ItempTypeID { get; set; }
-        public string Name { get; set; }
-        public int Price { get; set; }
-
-        public GameItem(int itemTypeID, string name, int price)
-        {
-            ItempTypeID = itemTypeID;
-            Name = name;
-            Price = price;
-        }
+        public int ItempTypeID { get; set; } = itemTypeID;
+        public string Name { get; set; } = name;
+        public int Price { get; set; } = price;
 
         public GameItem Clone()
         {
