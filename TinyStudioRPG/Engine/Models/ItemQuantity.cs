@@ -1,14 +1,8 @@
 ﻿namespace Engine.Models
 {
-    public class ItemQuantity
+    public class ItemQuantity(int itemId, int quantity)
     {
-        public int ItemID { get; set; }
-        public int Quantity { get; set; }
-
-        public ItemQuantity(int itemId, int quantity)
-        {
-            ItemID = itemId;
-            Quantity = quantity;
-        }
+        public int ItemID { get; set; } = itemId;
+        public int Quantity { get; set; } = quantity;
     }
 }
