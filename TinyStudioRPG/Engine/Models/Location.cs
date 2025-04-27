@@ -11,6 +11,7 @@ namespace Engine.Models
         public string ImageName { get; set; }
         public List<Quest> QuestsAvaibleHere { get; set; } = [];
         public List<MonsterEncounter> MonstersHere { get; set; } = [];
+        public Trader TraderHere { get; set; }
 
         public void AddMonster(int monsterID, int chanceOfEncountering)
         {

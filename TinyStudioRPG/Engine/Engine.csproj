@@ -7,11 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Locations\casa.png" />
+    <None Remove="Images\Locations\Casa_Principal.png" />
+    <None Remove="Images\Monsters\Vibora.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Locations\casa.png" />
+    <Resource Include="Images\Locations\Casa_Principal.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Monsters\Vibora.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

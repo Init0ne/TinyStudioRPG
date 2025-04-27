@@ -12,6 +12,7 @@ namespace Engine.ViewModels
 
         private Location _currentLocation;
         private Monster _currentMonster;
+        private Trader _currentTrader;
 
         public World CurrentWorld { get; set; }
         public Player CurrentPlayer { get; set; }
@@ -31,6 +32,7 @@ namespace Engine.ViewModels
                 CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
                 GetMonsterAtLocation();
+                CurrentTrader = CurrentLocation.TraderHere;
             }
         }
 
@@ -52,6 +54,18 @@ namespace Engine.ViewModels
                 {
                     RaiseMesage("No hay nada por aca.");
                 }
+            }
+        }
+
+        public Trader CurrentTrader
+        {
+            get { return _currentTrader; }
+            set
+            {
+                _currentTrader = value;
+
+                OnPropertyChanged(nameof(CurrentTrader));
+                OnPropertyChanged(nameof(HasTrader));
             }
         }
 
@@ -80,6 +94,7 @@ namespace Engine.ViewModels
         #endregion
 
         public bool HasMonster => CurrentMonster != null;
+        public bool HasTrader => CurrentTrader != null;
 
         public GameSession()
         {
