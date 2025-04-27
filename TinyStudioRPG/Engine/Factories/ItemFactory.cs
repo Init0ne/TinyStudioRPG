@@ -26,7 +26,8 @@ namespace Engine.Factories
 
             if (standardItem != null)
             {
-                return standardItem.Clone();
+                return standardItem
+                       is not Weapon ? standardItem.Clone() : ((Weapon)standardItem).Clone();
             }
 
             return null;

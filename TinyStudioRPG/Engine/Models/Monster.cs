@@ -19,6 +19,8 @@ namespace Engine.Models
             }
         }
 
+        public int MinimumDamage { get; set; }
+        public int MaximumDamage { get; set; }
         public int RewardExperiencePoints { get; private set; }
         public int RewardGold { get; private set; }
 
