@@ -1,8 +1,6 @@
 ﻿using Engine.EventArgs;
 using Engine.Factories;
 using Engine.Models;
-using System.ComponentModel;
-using System.Security.Cryptography;
 
 namespace Engine.ViewModels
 {
@@ -30,6 +28,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(HasLocationToEast));
                 OnPropertyChanged(nameof(HasLocationToSouth));
 
+                CompleteQuestsAtLocation();
                 GivePlayerQuestsAtLocation();
                 GetMonsterAtLocation();
             }
@@ -45,7 +44,7 @@ namespace Engine.ViewModels
                 OnPropertyChanged(nameof(CurrentMonster));
                 OnPropertyChanged(nameof(HasMonster));
 
-                if(CurrentMonster != null)
+                if (CurrentMonster != null)
                 {
                     RaiseMesage($"Viste un {CurrentMonster.Name} aca.");
                 }
@@ -140,6 +139,45 @@ namespace Engine.ViewModels
             }
         }
 
+        private void CompleteQuestsAtLocation()
+        {
+            foreach (Quest quest in CurrentLocation.QuestsAvaibleHere)
+            {
+                QuestStatus questToComplete =
+                    CurrentPlayer.Quests.FirstOrDefault(q => q.PlayerQuest.ID == quest.ID &&
+                                                             !q.IsCompleted);
+                if (questToComplete != null)
+                {
+                    if (CurrentPlayer.HasAllTheseItems(quest.ItemsToComplete))
+                    {
+                        // Remove the quest completion items from the player's inventory
+                        foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                        {
+                            for (int i = 0; i < itemQuantity.Quantity; i++)
+                            {
+                                CurrentPlayer.RemoveItemFromInventory(CurrentPlayer.Inventory.First(item => item.ItemTypeID == itemQuantity.ItemID));
+                            }
+                        }
+                        RaiseMessage("");
+                        RaiseMessage($"Completaste la mision '{quest.Name}'");
+                        // Give the player the quest rewards
+                        CurrentPlayer.ExperiencePoints += quest.RewardExperiencePoints;
+                        RaiseMessage($"Recibiste {quest.RewardExperiencePoints} puntos de exp");
+                        CurrentPlayer.Gold += quest.RewardGold;
+                        RaiseMessage($"Recibiste {quest.RewardGold} pesos");
+                        foreach (ItemQuantity itemQuantity in quest.RewardItems)
+                        {
+                            GameItem rewardItem = ItemFactory.CreateGameItem(itemQuantity.ItemID);
+                            CurrentPlayer.AddItemToInventory(rewardItem);
+                            RaiseMessage($"Recibiste un {rewardItem.Name}");
+                        }
+                        // Mark the Quest as completed
+                        questToComplete.IsCompleted = true;
+                    }
+                }
+            }
+        }
+
         private void GivePlayerQuestsAtLocation()
         {
             foreach (Quest quest in CurrentLocation.QuestsAvaibleHere)
@@ -147,6 +185,21 @@ namespace Engine.ViewModels
                 if (!CurrentPlayer.Quests.Any(q => q.PlayerQuest.ID == quest.ID))
                 {
                     CurrentPlayer.Quests.Add(new QuestStatus(quest));
+                    RaiseMessage("");
+                    RaiseMessage($"Recibiste la mision : '{quest.Name}'");
+                    RaiseMessage(quest.Description);
+                    RaiseMessage("Volve con :");
+                    foreach (ItemQuantity itemQuantity in quest.ItemsToComplete)
+                    {
+                        RaiseMessage($"   {itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
+                    }
+                    RaiseMessage("Y recibiras:");
+                    RaiseMessage($"   {quest.RewardExperiencePoints} puntos de exp.");
+                    RaiseMessage($"   {quest.RewardGold} pesos");
+                    foreach (ItemQuantity itemQuantity in quest.RewardItems)
+                    {
+                        RaiseMessage($"   {itemQuantity.Quantity} {ItemFactory.CreateGameItem(itemQuantity.ItemID).Name}");
+                    }
                 }
             }
         }
