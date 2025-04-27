@@ -1,5 +1,4 @@
 ﻿using Engine.Factories;
-using System.Security.Cryptography.X509Certificates;
 
 namespace Engine.Models
 {
@@ -39,7 +38,7 @@ namespace Engine.Models
 
             int runningTotal = 0;
 
-            foreach(MonsterEncounter monsterEncounterin in MonstersHere)
+            foreach (MonsterEncounter monsterEncounterin in MonstersHere)
             {
                 runningTotal += monsterEncounterin.ChanceOfEncountering;
 
