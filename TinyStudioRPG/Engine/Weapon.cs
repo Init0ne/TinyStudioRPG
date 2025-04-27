@@ -9,7 +9,7 @@ namespace Engine
 
         public new Weapon Clone()
         {
-            return new Weapon(ItempTypeID, Name, Price, MinimumDamage, MaximumDamage);
+            return new Weapon(ItemTypeID, Name, Price, MinimumDamage, MaximumDamage);
         }
     }
 }

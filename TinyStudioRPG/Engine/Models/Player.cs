@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.ComponentModel;
 
 namespace Engine.Models
 {
@@ -45,11 +44,11 @@ namespace Engine.Models
         public int ExperiencePoints
         {
             get { return experiencePoints; }
-            set 
-                { 
-                    experiencePoints = value;
-                    OnPropertyChanged(nameof(ExperiencePoints));
-                }
+            set
+            {
+                experiencePoints = value;
+                OnPropertyChanged(nameof(ExperiencePoints));
+            }
         }
 
         public int Level
@@ -88,6 +87,24 @@ namespace Engine.Models
             Inventory.Add(item);
 
             OnPropertyChanged(nameof(Weapons));
+        }
+
+        public void RemoveItemFromInventory(GameItem item)
+        {
+            Inventory.Remove(item);
+            OnPropertyChanged(nameof(Weapons));
+        }
+
+        public bool HasAllTheseItems(List<ItemQuantity> items)
+        {
+            foreach (ItemQuantity item in items)
+            {
+                if (Inventory.Count(i => i.ItemTypeID == item.ItemID) < item.Quantity)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

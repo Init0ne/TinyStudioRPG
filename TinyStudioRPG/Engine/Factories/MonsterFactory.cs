@@ -9,7 +9,7 @@ namespace Engine.Factories
             switch (monsterID)
             {
                 case 1:
-                    Monster vibora = new("Víbora", "yarara.png", 4, 4, 1, 2, 2, 1);
+                    Monster vibora = new("Víbora", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Monsters\\Vibora.png", 4, 4, 1, 2, 2, 1);
 
                     AddLootItem(vibora, 9001, 25);
                     AddLootItem(vibora, 9002, 75);
@@ -17,7 +17,7 @@ namespace Engine.Factories
                     return vibora;
 
                 case 2:
-                    Monster rata = new("Rata", "yarara.png", 4, 4, 1, 1,2, 1);
+                    Monster rata = new("Rata", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Monsters\\Vibora.png", 4, 4, 1, 1,2, 1);
 
                     AddLootItem(rata, 9003, 25);
                     AddLootItem(rata, 9004, 75);
@@ -25,7 +25,7 @@ namespace Engine.Factories
                     return rata;
 
                 case 3:
-                    Monster araña = new("Araña", "yarara.png", 4, 4, 1, 4, 2, 1);
+                    Monster araña = new("Araña", "F:\\Programacion\\Git\\TinyStudioRPG\\TinyStudioRPG\\Engine\\Images\\Monsters\\Vibora.png", 4, 4, 1, 4, 2, 1);
 
                     AddLootItem(araña, 9005, 25);
                     AddLootItem(araña, 9006, 75);
