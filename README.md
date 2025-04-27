@@ -31,6 +31,16 @@ El objetivo principal es **practicar** conceptos fundamentales de desarrollo de 
 
 ---
 
+## Capturas de pantalla
+
+### Pantalla principal
+![Pantalla principal](TinyStudioRPG/Engine/Images/Screenshots/Ventana_Principal.png)
+
+### Pantalla de trader
+![Pantalla del trader](TinyStudioRPG/Engine/Images/Screenshots/Ventana_Trader.png)
+
+---
+
 ## Objetivos de aprendizaje
 
 - Aplicar separación de responsabilidades siguiendo el patrón **MVVM**.
