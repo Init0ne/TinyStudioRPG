@@ -78,3 +78,17 @@ Este proyecto es **de práctica personal**, por lo que **no se aceptan contribuc
 Se agradece cualquier sugerencia o comentario para seguir mejorando.
 
 ---
+
+## Limitaciones Actuales
+
+Persistencia de datos: Actualmente, todo el progreso y estado del juego se mantiene en memoria durante la sesión. No existe guardado/carga desde una base de datos o archivos.
+
+Estilo visual básico: El diseño de la interfaz gráfica es funcional pero minimalista, sin personalización estética avanzada.
+
+Contenido limitado: El juego presenta una cantidad reducida de enemigos, ubicaciones y opciones de juego, suficiente para demostrar las mecánicas principales pero no una experiencia completa.
+
+Balance de juego: El sistema de combate, progresión y recompensas no está completamente balanceado ni optimizado para una jugabilidad prolongada.
+
+Sonido y animaciones: No se incluyen efectos de sonido, música, ni animaciones dentro del juego.
+
+Falta de pruebas automatizadas: Actualmente no existen pruebas unitarias o de integración que respalden el funcionamiento del código.
