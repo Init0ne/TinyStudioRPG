@@ -4,7 +4,7 @@ namespace Engine.Factories
 {
     public static class ItemFactory
     {
-        private static List<GameItem> _standardGameItems;
+        private readonly static List<GameItem> _standardGameItems;
 
         static ItemFactory()
         {
