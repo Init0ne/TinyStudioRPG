@@ -43,6 +43,15 @@ namespace Engine.ViewModels
 
                 OnPropertyChanged(nameof(CurrentMonster));
                 OnPropertyChanged(nameof(HasMonster));
+
+                if(CurrentMonster != null)
+                {
+                    RaiseMesage($"Viste un {CurrentMonster.Name} aca.");
+                }
+                else
+                {
+                    RaiseMesage("No hay nada por aca.");
+                }
             }
         }
 
